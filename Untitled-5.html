@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+
+<h1>changing CSS with event listeners</h1>
+
+<div>
+    <label style="font-size: 30px; padding: 30px;">background color</label>
+    <input class="js-bg-color" type="text" style="padding:30px; font-size:30px;">
+</div>
+
+<div>
+    <label style="font-size: 30px; padding: 30px;">text color</label>
+    <input class="js-text-color" type="text" style="padding:30px; font-size:30px;">
+</div>
+
+<div>
+    <label style="font-size: 30px; padding: 30px;">text size</label>
+    <input class="js-text-size" type="number" style="padding:30px; font-size:30px;">
+</div>
+
+
+
+
+
+ <script>
+
+  var bgColor = document.querySelector(".js-bg-color")
+  var textColor = document.querySelector(".js-text-color")
+  var textSize = document.querySelector(".js-text-size")
+  var body = document.querySelector("body")
+
+  bgColor.style.borderRadius = "12px"
+  bgColor.style.border = "10px dashed black"
+
+  textColor.style.borderRadius = "50%"
+  textColor.style.border = "dotted 4px"
+
+
+
+  bgColor.addEventListener('keyup',function(event){
+      console.log("backgroundColor", event.target.value)
+      body.style.backgroundColor = event.target.value;
+  })
+
+  textColor.addEventListener('keyup',function(event){
+      console.log("textColor", event.target.value)
+      var color = event.target.value;
+     
+     switch(color){
+         case 'red':
+             textColor.style.backgroundColor = color;
+         break;
+         case 'black':
+         textColor.style.backgroundColor = color;
+         textColor.style.color = white;
+         break;
+         default:
+         textColor.style.backgroundColor = color;
+             break;
+    }
+  })
+
+  textSize.addEventListener('keyup',function(event){
+      console.log("textSize", event.target.value)
+      body.style.textSize = event.target.value;
+  })
+
+
+
+ </script>
+</body>
+</html>
